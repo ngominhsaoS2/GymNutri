@@ -1,0 +1,111 @@
+﻿<div class="modal fade" id="add-edit-modal" role="dialog">
+    <div class="modal-dialog modal-lg-10">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><span id="spAddEdit">Add / Edit</span> Template Menu</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form role="form" id="frmAddEdit">
+                    <div class="row" hidden>
+                        <input type="hidden" id="hidId" value="" />
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Code</label>
+                                        <input type="text" class="form-control form-control-sm" id="txtmdCode" name="txtmdCode" data-saonm="ab" />
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" class="form-control form-control-sm" id="txtmdName" name="txtmdName" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Meals</label>
+                                        <select id="ddlmdMeals" name="ddlmdMeals" multiple></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Description</label><br />
+                                <textarea rows="4" class="form-control form-control-sm p-t-10 p-b-15" id="txtmdDescription" name="txtmdDescription"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>BodyClassification</label><br />
+                                <select id="ddlmdBodyClassifications" multiple></select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="row" id="rDetailList">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-10">
+                                <h6>Detail</h6>
+                            </div>
+                            <div class="col-2">
+                                <div class="pull-right">
+                                    <button type="button" class="btn btn-xs btn-success" id="btnCreateDetail" data-toggle="tooltip" title="Create detail"><i class="fa fa-plus"></i></button>
+                                    <button type="button" class="btn btn-xs btn-danger" id="btnCancelDetail" hidden data-toggle="tooltip" title="Cancel"><i class="fa fa-times"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-table">
+                            <div class="table-responsive">
+                                <table class="table table-sm table-bordered table-hover" id="tbl-detail">
+                                    <thead class="text-uppercase">
+                                        <tr>
+                                            <th>No</th>
+                                            <th id="th-action">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="body-detail">
+                                        <tr id="tr-add-controls" class="d-none">
+                                            <td id="td-no"></td>
+                                            <td class="text-overflow" id="td-action">
+                                                <div class="btn-group btn-group-sm">
+                                                    <a class="btn btn-xs btn-light" id="btnSaveDetail" data-toggle="tooltip" title="Save"><i class="fa fa-save"></i></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <script id="template-detail" type="x-tmpl-mustache">
+                                    <tr class="tr-inserted" id="tr-{{RowId}}" data-setid="{{TemplateMenuSetId}}">
+                                        {{{Content}}}
+                                        <td class="text-overflow action">
+                                            <div class="btn-group btn-group-sm">
+                                                <a hidden class="btn btn-xs btn-light btn-detail-save" data-rowid="{{RowId}}" data-toggle="tooltip" title="Save"><i class="fa fa-save"></i></a>
+                                                <a class="btn btn-xs btn-light btn-detail-edit" data-rowid="{{RowId}}" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                <a class="btn btn-xs btn-light btn-detail-delete" data-rowid="{{RowId}}" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
+                                                <a class="btn btn-xs btn-light btn-detail-clone" data-rowid="{{RowId}}" data-toggle="tooltip" title="Clone"><i class="fa fa-clone"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-xs btn-success" id="btnSave"><i class="fa fa-floppy-o"></i>&nbsp; Save</button>
+                <button type="button" class="btn btn-xs btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp; Close</button>
+            </div>
+        </div>
+    </div>
+</div>

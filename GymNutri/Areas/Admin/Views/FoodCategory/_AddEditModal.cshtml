@@ -1,0 +1,111 @@
+﻿<div class="modal fade" id="add-edit-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><span id="spAddEdit">Add / Edit</span> Food Category</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form role="form" id="frmAddEdit">
+                    <div class="row" hidden>
+                        <input type="hidden" id="hidId" value="0" />
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Code</label>
+                                        <input type="text" class="form-control form-control-sm" id="txtmdCode" name="txtmdCode" />
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" class="form-control form-control-sm" id="txtmdName" name="txtmdName" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>No.</label>
+                                        <input type="number" class="form-control form-control-sm" id="txtmdOrderNo" name="txtmdOrderNo" />
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>FoodTypeCode</label>
+                                        <select class="form-control form-control-sm" id="ddlmdFoodTypeCode" name="ddlmdFoodTypeCode">
+                                            <option value="">-- Select --</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Description</label><br />
+                                        <textarea rows="4" class="form-control form-control-sm p-t-10 p-b-15" id="txtmdDescription" name="txtmdDescription"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Image</label>
+                                <div class="input-group" id="grInput" data-toggle="tooltip">
+                                    <input type="text" id="txtmdImage" name="txtmdImage" class="form-control form-control-sm" disabled />
+                                    <input type="file" id="fileInputImage" style="display:none" />
+                                    <span class="input-group-btn">
+                                        <input type="button" id="btnSelectImg" class="btn btn-xs btn-info" value="Browser" />
+                                    </span>
+                                </div>
+                                @*<img id="imgFoodCategory" class="img-responsive" />*@
+                                <div class="square-div">
+                                    <div class="square-div-content img-responsive" id="imgFoodCategory"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Tag (seperated by semi-colons)</label>
+                                <input type="text" class="form-control form-control-sm" id="txtmdTags" name="txtmdTags" />
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label>SeoAlias</label>
+                                <input type="text" class="form-control form-control-sm" id="txtmdSeoAlias" name="txtmdSeoAlias" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>SeoPageTitle</label>
+                                <input type="text" class="form-control form-control-sm" id="txtmdSeoPageTitle" name="txtmdSeoPageTitle" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>SeoKeywords</label>
+                                <input type="text" class="form-control form-control-sm" id="txtmdSeoKeywords" name="txtmdSeoKeywords" />
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>SeoDescription</label>
+                                <textarea rows="4" class="form-control form-control-sm" id="txtmdSeoDescription" name="txtmdSeoDescription"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-xs btn-success" id="btnSave"><i class="fa fa-floppy-o"></i>&nbsp; Save</button>
+                <button type="button" class="btn btn-xs btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp; Close</button>
+            </div>
+        </div>
+    </div>
+</div>

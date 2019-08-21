@@ -1,0 +1,203 @@
+﻿<div class="modal fade" id="body-index-modal" role="dialog">
+    <div class="modal-dialog modal-lg-12">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><span id="spBodyIndex"></span> Body index</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 collapse" id="rDetailInfor">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="index-tab" data-toggle="tab" href="#index" role="tab" aria-controls="index" aria-selected="true">Index</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="calculated-tab" data-toggle="tab" href="#calculated" role="tab" aria-controls="calculated" aria-selected="false">Calculated</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content m-t-5 m-b-10 border-bottom" id="myTabContent">
+                            <div class="tab-pane fade show active" id="index" role="tabpanel" aria-labelledby="index-tab">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form id="frmBodyIndex">
+                                            <div class="row" hidden>
+                                                <input type="hidden" id="hidmdUserId" value="" />
+                                                <input type="hidden" id="hidmdBodyIndexId" value="0" />
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label>Date</label>
+                                                        <input type="text" class="form-control form-control-sm datepicker" id="txtDate" name="txtDate" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="form-inline">
+                                                            <label>Height (cm):</label>
+                                                            <input type="number" class="form-control form-control-sm col-4 border-0" id="txtHeight" value="160" />
+                                                        </div>
+                                                        <input id="slHeight" data-slider-id='slHeightSlider' class="slider" type="text" data-slider-min="130" data-slider-max="230" data-slider-step="1" data-slider-value="160" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="form-inline">
+                                                            <label>Weight (kg)</label>
+                                                            <input type="number" class="form-control form-control-sm col-4 border-0" id="txtWeight" value="50" />
+                                                        </div>
+                                                        <input id="slWeight" data-slider-id='slWeightSlider' class="slider" type="text" data-slider-min="20" data-slider-max="180" data-slider-step="1" data-slider-value="50" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <div class="form-inline">
+                                                            <label>Chest (cm):</label>
+                                                            <input type="number" class="form-control form-control-sm col-4 border-0" id="txtChest" value="90" />
+                                                        </div>
+                                                        <input id="slChest" data-slider-id='slChestSlider' class="slider" type="text" data-slider-min="70" data-slider-max="150" data-slider-step="1" data-slider-value="90" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="form-inline">
+                                                            <label>Waist  (cm):</label>
+                                                            <input type="number" class="form-control form-control-sm col-4 border-0" id="txtWaist" value="60" />
+                                                        </div>
+                                                        <input id="slWaist" data-slider-id='slWaistSlider' class="slider" type="text" data-slider-min="40" data-slider-max="180" data-slider-step="1" data-slider-value="60" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="form-inline">
+                                                            <label>Belly (cm):</label>
+                                                            <input type="number" class="form-control form-control-sm col-4 border-0" id="txtBelly" value="70" />
+                                                        </div>
+                                                        <input id="slBelly" data-slider-id='slBellySlider' class="slider" type="text" data-slider-min="40" data-slider-max="180" data-slider-step="1" data-slider-value="60" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="form-inline">
+                                                            <label>Ass (cm)</label>
+                                                            <input type="number" class="form-control form-control-sm col-4 border-0" id="txtAss" value="90" />
+                                                        </div>
+                                                        <input id="slAss" data-slider-id='slAssSlider' class="slider" type="text" data-slider-min="70" data-slider-max="150" data-slider-step="1" data-slider-value="90" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <div class="form-inline">
+                                                            <label>Fat (%):</label>
+                                                            <input type="number" class="form-control form-control-sm col-4 border-0" id="txtFat" value="50" />
+                                                        </div>
+                                                        <input id="slFat" data-slider-id='slFatSlider' class="slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" />
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="form-inline">
+                                                            <label>Muscle (%)</label>
+                                                            <input type="number" class="form-control form-control-sm col-4 border-0" id="txtMuscle" value="50" />
+                                                        </div>
+                                                        <input id="slMuscle" data-slider-id='slMuscleSlider' class="slider" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="calculated" role="tabpanel" aria-labelledby="calculated-tab">
+                                <div class="row" id="rBodyClassifications">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>BodyClassifications</label><br />
+                                            <select id="ddlmdBodyClassifications" multiple></select>
+                                            <button type="button" class="btn btn-xs btn-primary m-t-5" id="btnCalculate"><i class="fa fa-calculator"></i>&nbsp;Calculate</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 p-b-6">
+                        <div class="pull-left form-inline">
+                            <div class="input-group input-group-sm">
+                                <input class="form-control datepicker" id="txtFromDate" placeholder="From" />
+                                <input class="form-control datepicker" id="txtToDate" placeholder="To" />
+                                <button class="btn btn-xs btn-primary btn-flat" id="btnSearchBodyIndex" data-toggle="tooltip" title="Search"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                            <button class="btn btn-xs btn-success" id="btnSaveBodyIndex" data-toggle="tooltip" title="Save" hidden><i class="fa fa-save"></i></button>
+                            <button class="btn btn-xs btn-danger" id="btnCancelBodyIndex" data-toggle="tooltip" title="Cancel" hidden><i class="fa fa-times"></i></button>
+                            <button class="btn btn-xs btn-primary" id="btnCreateBodyIndex" data-toggle="tooltip" title="Add a new record"><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="single-table">
+                            <div class="table-responsive">
+                                <table class="table table-sm table-bordered table-hover" id="tbl-body-index">
+                                    <thead class="text-uppercase">
+                                        <tr>
+                                            <th class="pointable sort-body-index" data-id="0">Date</th>
+                                            <th class="pointable sort-body-index" data-id="1">Height</th>
+                                            <th class="pointable sort-body-index" data-id="2">Weight</th>
+                                            <th class="pointable sort-body-index" data-id="3">Chest</th>
+                                            <th class="pointable sort-body-index" data-id="4">Waist</th>
+                                            <th class="pointable sort-body-index" data-id="5">Ass</th>
+                                            <th class="pointable sort-body-index" data-id="6">Fat %</th>
+                                            <th class="pointable sort-body-index" data-id="7">Muscle %</th>
+                                            <th class="pointable sort-body-index" data-id="8">BMI</th>
+                                            <th class="pointable sort-body-index" data-id="9">BodyFat</th>
+                                            <th class="pointable sort-body-index" data-id="10">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody-body-index"></tbody>
+                                </table>
+                                <script id="template-body-index" type="x-tmpl-mustache">
+                                    <tr>
+                                        <td>{{Date}}</td>
+                                        <td>{{Height}}</td>
+                                        <td>{{Weight}}</td>
+                                        <td>{{Chest}}</td>
+                                        <td>{{Waist}}</td>
+                                        <td>{{Ass}}</td>
+                                        <td>{{FatPercent}}</td>
+                                        <td>{{MusclePercent}}</td>
+                                        <td>{{IdiWproBmi}}</td>
+                                        <td>{{BodyFat}}</td>
+                                        <td class="text-overflow">
+                                            <div class="btn-group btn-group-sm">
+                                                <a class="btn btn-xs btn-light btn-bodyindex-clone" data-id="{{Id}}" data-toggle="tooltip" title="Clone"><i class="fa fa-clone"></i></a>
+                                                <a class="btn btn-xs btn-light btn-bodyindex-edit" data-id="{{Id}}" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                <a class="btn btn-xs btn-light btn-bodyindex-delete " data-id="{{Id}}" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </script>
+                            </div>
+                            <!--Pagination-->
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="dataTables_info">
+                                        <select id="ddlShowPageBodyIndex">
+                                            <option value="10" selected="selected">10</option>
+                                            <option value="20">20</option>
+                                            <option value="30">30</option>
+                                            <option value="50">50</option>
+                                        </select>
+                                        <span class="item-per-page">
+                                            All records: <strong id="lblTotalRecordsBodyIndex"></strong>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="float-right">
+                                        <ul id="paginationULBodyIndex"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+    </div>
+</div>

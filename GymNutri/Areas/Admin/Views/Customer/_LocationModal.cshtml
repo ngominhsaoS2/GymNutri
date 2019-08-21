@@ -1,0 +1,143 @@
+﻿<div class="modal fade" id="location-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><span id="spLocation"></span> Location</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="frmLocation" class="collapse">
+                            <div class="row" hidden>
+                                <input type="hidden" id="hidmdLocationUserId" value="" />
+                                <input type="hidden" id="hidmdLocationId" value="0" />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <textarea class="form-control form-control-sm" rows="4" id="txtAddress" name="txtAddress"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea class="form-control form-control-sm" rows="4" id="txtDescription"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>From</label>
+                                        <input type="time" class="form-control form-control-sm" id="txtFirstFrom" name="txtFirstFrom" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>To</label>
+                                        <input type="time" class="form-control form-control-sm" id="txtFirstTo" name="txtFirstTo" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>From</label>
+                                        <input type="time" class="form-control form-control-sm" id="txtSecondFrom" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>To</label>
+                                        <input type="time" class="form-control form-control-sm" id="txtSecondTo" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>From</label>
+                                        <input type="time" class="form-control form-control-sm" id="txtThirdFrom" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>To</label>
+                                        <input type="time" class="form-control form-control-sm" id="txtThirdTo" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 p-b-6">
+                        <div class="pull-left form-inline">
+                            <div class="input-group input-group-sm">
+                                <input class="form-control" id="txtKeywordLocation" placeholder="Keyword" />
+                                <button class="btn btn-xs btn-primary btn-flat" id="btnSearchLocation" data-toggle="tooltip" title="Search"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                            <button class="btn btn-xs btn-success" id="btnSaveLocation" data-toggle="tooltip" title="Save" hidden><i class="fa fa-save"></i></button>
+                            <button class="btn btn-xs btn-danger" id="btnCancelLocation" data-toggle="tooltip" title="Cancel" hidden><i class="fa fa-times"></i></button>
+                            <button class="btn btn-xs btn-primary" id="btnCreateLocation" data-toggle="tooltip" title="Add a new record"><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="single-table">
+                            <div class="table-responsive">
+                                <table class="table table-sm table-bordered table-hover" id="tbl-location">
+                                    <thead class="text-uppercase">
+                                        <tr>
+                                            <th class="pointable sort-location" data-id="0">Address</th>
+                                            <th class="pointable sort-location" data-id="1">Time 01</th>
+                                            <th class="pointable sort-location" data-id="2">Time 02</th>
+                                            <th class="pointable sort-location" data-id="3">Time 03</th>
+                                            <th class="pointable sort-location" data-id="4">Description</th>
+                                            <th class="pointable sort-location" data-id="5">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody-location"></tbody>
+                                </table>
+                                <script id="template-location" type="x-tmpl-mustache">
+                                    <tr>
+                                        <td class="text-overflow">{{Address}}</td>
+                                        <td>{{FirstFrom}} - {{FirstTo}}</td>
+                                        <td>{{SecondFrom}} - {{SecondTo}}</td>
+                                        <td>{{ThirdFrom}} - {{ThirdTo}}</td>
+                                        <td>{{Description}}</td>
+                                        <td class="minw-100">
+                                            <div class="btn-group btn-group-sm">
+                                                <a class="btn btn-xs btn-light btn-location-clone" data-id="{{Id}}" data-toggle="tooltip" title="Clone"><i class="fa fa-clone"></i></a>
+                                                <a class="btn btn-xs btn-light btn-location-edit" data-id="{{Id}}" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                <a class="btn btn-xs btn-light btn-location-delete " data-id="{{Id}}" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </script>
+                            </div>
+                            <!--Pagination-->
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="dataTables_info">
+                                        <select id="ddlShowPageLocation">
+                                            <option value="10" selected="selected">10</option>
+                                            <option value="20">20</option>
+                                            <option value="30">30</option>
+                                            <option value="50">50</option>
+                                        </select>
+                                        <span class="item-per-page">
+                                            All records: <strong id="lblTotalRecordsLocation"></strong>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="float-right">
+                                        <ul id="paginationULLocation"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+    </div>
+</div>

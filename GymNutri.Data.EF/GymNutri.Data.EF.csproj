@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190108165321_AddFoodCategoryTags.cs" />
+    <Compile Remove="Migrations\20190108165439_AddFoodCategoryTags.cs" />
+    <Compile Remove="Migrations\20190109111005_AddFoodCategoryTags.cs" />
+    <Compile Remove="Migrations\20190109121125_AddFoodCategoryTag.cs" />
+    <Compile Remove="Migrations\20190126020131_ChangeLocationTimesProperty.cs" />
+    <Compile Remove="Migrations\20190212144413_AddDetailToTemplateMenuSet.cs" />
+    <Compile Remove="Migrations\20190306133412_ChangeToInt.cs" />
+    <Compile Remove="Migrations\20190306134048_ChangeToInt.cs" />
+    <Compile Remove="Migrations\20190309014715_ChangeTemplateMenuIdToRequired.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GymNutri.Data\GymNutri.Data.csproj" />
+    <ProjectReference Include="..\GymNutri.Infrastructure\GymNutri.Infrastructure.csproj" />
+    <ProjectReference Include="..\GymNutri.Utilities\GymNutri.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

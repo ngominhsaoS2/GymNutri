@@ -1,0 +1,155 @@
+﻿<div class="modal fade" id="desire-modal" role="dialog">
+    <div class="modal-dialog modal-lg-10">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><span id="spdesire"></span> Desire</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form id="frmDesire" class="collapse">
+                            <div class="row" hidden>
+                                <input type="hidden" id="hidmdDesireUserId" value="" />
+                                <input type="hidden" id="hidmdDesireId" value="0" />
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>DesireTypeCode</label>
+                                        <select class="form-control form-control-sm" id="ddlmdDesireTypeCode" name="ddlmdDesireTypeCode">
+                                            <option value="">-- Select --</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>ChangingSpeed</label>
+                                        <select class="form-control form-control-sm" id="ddlmdChangingSpeed" name="ddlmdChangingSpeed">
+                                            <option value="">-- Select --</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>PracticeIntensive</label>
+                                        <select class="form-control form-control-sm" id="ddlmdPracticeIntensive" name="ddlmdPracticeIntensive">
+                                            <option value="">-- Select --</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group m-b-3">
+                                                <label>StartDate</label>
+                                                <input type="text" class="form-control form-control-sm datepicker" id="txtmdStartDate" name="txtmdStartDate" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>EndDate</label>
+                                                <input type="text" class="form-control form-control-sm datepicker" id="txtmdEndDate" name="txtmdEndDate" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea class="form-control form-control-sm" rows="4" id="txtmdDescription" name="txtmdDescription"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Detail</label>
+                                        <textarea class="form-control form-control-sm" rows="4" id="txtmdDetail" name="txtmdDetail"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 p-b-6">
+                        <div class="pull-left form-inline">
+                            <div class="input-group input-group-sm">
+                                <input class="form-control" id="txtKeywordDesire" placeholder="Keyword" />
+                                <button class="btn btn-xs btn-primary btn-flat" id="btnSearchDesire" data-toggle="tooltip" title="Search"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                            <button class="btn btn-xs btn-success" id="btnSaveDesire" data-toggle="tooltip" title="Save" hidden><i class="fa fa-save"></i></button>
+                            <button class="btn btn-xs btn-danger" id="btnCancelDesire" data-toggle="tooltip" title="Cancel" hidden><i class="fa fa-times"></i></button>
+                            <button class="btn btn-xs btn-primary" id="btnCreateDesire" data-toggle="tooltip" title="Add a new record"><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="single-table">
+                            <div class="table-responsive">
+                                <table class="table table-sm table-bordered table-hover" id="tbl-desire">
+                                    <thead class="text-uppercase">
+                                        <tr>
+                                            <th class="pointable sort-desire" data-id="0">StartDate</th>
+                                            <th class="pointable sort-desire" data-id="1">EndDate</th>
+                                            <th class="pointable sort-desire" data-id="2">DesireTypeCode</th>
+                                            <th class="pointable sort-desire" data-id="3">Changing Speed</th>
+                                            <th class="pointable sort-desire" data-id="4">Practice Intensive</th>
+                                            <th class="pointable sort-desire" data-id="5">Description</th>
+                                            <th class="pointable sort-desire" data-id="6">Detail</th>
+                                            <th class="pointable sort-desire" data-id="7">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody-desire"></tbody>
+                                </table>
+                                <script id="template-desire" type="x-tmpl-mustache">
+                                    <tr>
+                                        <td>{{StartDate}}</td>
+                                        <td>{{EndDate}}</td>
+                                        <td>{{DesireTypeCode}}</td>
+                                        <td>{{ChangingSpeed}}</td>
+                                        <td>{{PracticeIntensive}}</td>
+                                        <td class="text-overflow">{{Description}}</td>
+                                        <td class="text-overflow">{{Detail}}</td>
+                                        <td class="minw-100">
+                                            <div class="btn-group btn-group-sm">
+                                                <a class="btn btn-xs btn-light btn-desire-clone" data-id="{{Id}}" data-toggle="tooltip" title="Clone"><i class="fa fa-clone"></i></a>
+                                                <a class="btn btn-xs btn-light btn-desire-edit" data-id="{{Id}}" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
+                                                <a class="btn btn-xs btn-light btn-desire-delete " data-id="{{Id}}" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </script>
+                            </div>
+                            <!--Pagination-->
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="dataTables_info">
+                                        <select id="ddlShowPageDesire">
+                                            <option value="10" selected="selected">10</option>
+                                            <option value="20">20</option>
+                                            <option value="30">30</option>
+                                            <option value="50">50</option>
+                                        </select>
+                                        <span class="item-per-page">
+                                            All records: <strong id="lblTotalRecordsDesire"></strong>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="float-right">
+                                        <ul id="paginationULDesire"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                
+            </div>
+        </div>
+    </div>
+</div>

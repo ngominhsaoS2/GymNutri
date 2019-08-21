@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewData["Title"] = "Meal";
+}
+
+@section Scripts{
+    <script src="~/admin-app/controllers/meal/index.js" asp-append-version="true"></script>
+    <script>
+        meal.initialize();
+    </script>
+}
+
+@section PageTitle {
+    <div class="page-title-area">
+        <div class="row align-items-center p-t-5 p-b-5">
+            <div class="col-sm-12">
+                <div class="breadcrumbs-area clearfix">
+                    <h4 class="page-title pull-left">Meal</h4>
+                    <ul class="breadcrumbs pull-left">
+                        <li><a href="/Admin/Home/Index">Home</a></li>
+                        <li><span>Meal</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-12 m-t-30">
+        <div class="card">
+            <div class="card-body p-t-15">
+                <div class="row p-b-6">
+                    <div class="col-md-12">
+                        <div class="pull-left form-inline">
+                            <div class="input-group input-group-sm m-r-7">
+                                <div data-toggle="tooltip" title="Open/Close more filters">
+                                    <button class="btn btn-xs btn-default pointer m-r-7" data-toggle="collapse" data-target="#filter"><i class="fa fa-filter"></i></button>
+                                </div>
+                                <input class="form-control" id="txtKeyword" placeholder="Keyword" />
+                                <button class="btn btn-xs btn-primary btn-flat" id="btnSearch" data-toggle="tooltip" title="Search"><i class="fa fa-search"></i>&nbsp; Search</button>
+                                <button class="btn btn-xs btn-secondary btn-flat" id="btnErase" data-toggle="tooltip" title="Erase all filters"><i class="fa fa-undo"></i>&nbsp; Erase</button>
+                            </div>
+                            <ul class="list-inline" id="ulSearched"></ul>
+                        </div>
+                        <div class="pull-right">
+                            <button class="btn btn-xs btn-success" id="btnCreate" data-toggle="tooltip" title="Add a new record"><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row collapse p-b-6" id="filter">
+                    <div class="col-md-12">
+                        <div class="border-bottom">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Sort by</label>
+                                        <select class="form-control form-control-sm" id="ddlSortBy">
+                                            <option value="">-- Sort by --</option>
+                                            <option value="Id">Id</option>
+                                            <option value="GroupCode">GroupCode</option>
+                                            <option value="OrderNo">No.</option>
+                                            <option value="Code">Code</option>
+                                            <option value="Name">Name</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Group</label>
+                                        <select class="form-control form-control-sm" id="ddlGroupCode">
+                                            <option value="">-- Select Group --</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-table">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-bordered table-hover" id="tbl-meal">
+                            <thead class="text-uppercase">
+                                <tr>
+                                    <th class="sortable" data-id="0">Id</th>
+                                    <th class="sortable" data-id="1">GroupCode</th>
+                                    <th class="sortable" data-id="2">No.</th>
+                                    <th class="sortable" data-id="3">Code</th>
+                                    <th class="sortable" data-id="4">Name</th>
+                                    <th class="sortable" data-id="5">MealTime</th>
+                                    <th class="sortable" data-id="6">Description</th>
+                                    <th class="sortable" data-id="7">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="body-meal"></tbody>
+                        </table>
+                        <script id="template-meal" type="x-tmpl-mustache">
+                            <tr>
+                                <td>{{Id}}</td>
+                                <td>{{GroupCode}}</td>
+                                <td>{{OrderNo}}</td>
+                                <td>{{Code}}</td>
+                                <td class="w-25">{{{Name}}}</td>
+                                <td>{{MealTime}}</td>
+                                <td class="w-35 text-overflow" data-toggle="tooltip" title="{{Description}}">{{Description}}</td>
+                                <td class="text-overflow">
+                                    <div class="btn-group btn-group-sm">
+                                        <a class="btn btn-xs btn-light btn-clone" data-id="{{Id}}" data-toggle="tooltip" title="Clone"><i class="fa fa-clone"></i></a>
+                                        <a class="btn btn-xs btn-light btn-edit" data-id="{{Id}}" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
+                                        <a class="btn btn-xs btn-light btn-delete" data-id="{{Id}}" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </script>
+                    </div>
+                    <!--Pagination-->
+                    <br />
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="dataTables_info" id="datatable-checkbox_info" role="status" aria-live="polite">
+                                <select id="ddlShowPage">
+                                    <option value="10" selected="selected">10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="50">50</option>
+                                </select>
+                                <span class="item-per-page">
+                                    All records: <strong id="lblTotalRecords"></strong>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="float-right">
+                                <ul id="paginationUL"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_AddEditModal.cshtml")

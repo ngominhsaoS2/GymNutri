@@ -1,0 +1,118 @@
+﻿<div class="modal fade" id="add-edit-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><span id="spAddEdit">Add / Edit</span> Set of Foods</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form role="form" id="frmAddEdit">
+                    <div class="row" hidden>
+                        <input type="hidden" id="hidId" value="0" />
+                    </div>
+                    <div class="row" id="rHead">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Code</label>
+                                        <input type="text" class="form-control form-control-sm" id="txtmdCode" name="txtmdCode" data-saonm="ab" />
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" class="form-control form-control-sm" id="txtmdName" name="txtmdName" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Meals</label>
+                                        <select class="input-sm" id="ddlmdMeals" name="ddlmdMeals" multiple="multiple"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Description</label><br />
+                                <textarea rows="4" class="form-control form-control-sm p-t-10 p-b-15" id="txtmdDescription" name="txtmdDescription"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="row" id="rDetailList">
+                    <div class="col-md-12">
+                        <form role="form" id="frmAddDetail">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h6>Detail</h6>
+                                </div>
+                                <div class="col-6">
+                                    <div class="pull-right">
+                                        <button type="button" class="btn btn-xs btn-success" id="btnCreateDetail" data-toggle="tooltip" title="Create detail"><i class="fa fa-plus"></i></button>
+                                        <button type="button" class="btn btn-xs btn-primary" id="btnSaveDetail" hidden data-toggle="tooltip" title="Save detail"><i class="fa fa-save"></i></button>
+                                        <button type="button" class="btn btn-xs btn-danger" id="btnCancelDetail" hidden data-toggle="tooltip" title="Cancel"><i class="fa fa-times"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row p-t-5 p-b-5">
+                                <div class="col-md-12 collapse" id="rDetail">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <select class="input-sm" id="ddlmdFood" name="ddlmdFood"></select>
+                                        </div>
+                                        <div class="col-4">
+                                            <input type="number" class="form-control form-control-sm" id="txtmdQuantity" name="txtmdQuantity" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="single-table">
+                            <div class="table-responsive">
+                                <table class="table table-sm table-bordered table-hover" id="tbl-detail">
+                                    <thead class="text-uppercase">
+                                        <tr>
+                                            <th class="sortable sortable-detail" data-id="0">Id</th>
+                                            <th class="sortable sortable-detail" data-id="1">Image</th>
+                                            <th class="sortable sortable-detail" data-id="2">Quantity</th>
+                                            <th class="sortable sortable-detail" data-id="3">Unit</th>
+                                            <th class="sortable sortable-detail" data-id="4">Code</th>
+                                            <th class="sortable sortable-detail" data-id="5">Name</th>
+                                            <th class="sortable sortable-detail" data-id="6">Description</th>
+                                            <th class="sortable sortable-detail" data-id="7">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="body-detail"></tbody>
+                                </table>
+                                <script id="template-detail" type="x-tmpl-mustache">
+                                    <tr class="tr-detail">
+                                        <td class="food-id">{{Id}}</td>
+                                        <td><img class="img-responsive maxh-70" src="{{Image}}" /></td>
+                                        <td class="food-quantity">{{Quantity}}</td>
+                                        <td>{{Unit}}</td>
+                                        <td>{{Code}}</td>
+                                        <td class="food-name">{{Name}}</td>
+                                        <td>{{Description}}</td>
+                                        <td class="text-overflow">
+                                            <div class="btn-group btn-group-sm">
+                                                <a class="btn btn-xs btn-light btn-detail-delete" data-id="{{Id}}" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-xs btn-success" id="btnSave"><i class="fa fa-floppy-o"></i>&nbsp; Save</button>
+                <button type="button" class="btn btn-xs btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp; Close</button>
+            </div>
+        </div>
+    </div>
+</div>

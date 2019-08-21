@@ -1,0 +1,75 @@
+﻿<div class="modal fade" id="add-edit-modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><span id="spAddEdit">Add / Edit</span> Member Card</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form role="form" id="frmAddEdit">
+                    <div class="row" hidden>
+                        <input type="hidden" id="hidId" value="" />
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>StartDate</label>
+                                        <input type="text" class="form-control form-control-sm datepicker" id="txtmdStartDate" name="txtmdStartDate" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>EndDate</label>
+                                        <input type="text" class="form-control form-control-sm datepicker" id="txtmdEndDate" name="txtmdEndDate" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>MonthDuration</label>
+                                        <input type="number" class="form-control form-control-sm" id="txtmdMonthDuration" name="txtmdMonthDuration" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>User</label>
+                                        <select class="input-sm" id="ddlmdUser" name="ddlmdUser"></select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>MemberType</label>
+                                        <select class="form-control form-control-sm member-type" id="ddlmdMemberType" name="ddlmdMemberType">
+                                            <option value="">-- Select --</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>TemplateMenu</label>
+                                        <select id="ddlmdTemplateMenu" name="ddlmdTemplateMenu"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Description</label><br />
+                                <textarea rows="7" class="form-control form-control-sm p-t-10 p-b-15" id="txtmdDescription" name="txtmdDescription"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-xs btn-success" id="btnSave"><i class="fa fa-floppy-o"></i>&nbsp; Save</button>
+                <button type="button" class="btn btn-xs btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp; Close</button>
+            </div>
+        </div>
+    </div>
+</div>

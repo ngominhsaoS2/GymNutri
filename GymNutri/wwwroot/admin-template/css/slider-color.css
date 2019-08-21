@@ -1,0 +1,32 @@
+﻿#slHeightSlider .slider-selection {
+    background: #007bff;
+}
+
+#slWeightSlider .slider-selection {
+    background: #007bff;
+}
+
+#slChestSlider .slider-selection {
+    background: #28a745;
+}
+
+#slWaistSlider .slider-selection {
+    background: #28a745;
+}
+
+#slBellySlider .slider-selection {
+    background: #28a745;
+}
+
+#slAssSlider .slider-selection {
+    background: #28a745;
+}
+
+#slFatSlider .slider-selection {
+    background: #ffc107;
+}
+
+#slMuscleSlider .slider-selection {
+    background: #ffc107;
+}
+

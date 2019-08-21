@@ -1,0 +1,396 @@
+﻿A/ System (hệ thống)
+
+DONE*** Users (lưu tất cả thông tin cá nhân cơ bản của người dùng)
+- Id
+- UserName
+- Password
+- RoleId (quy định người dùng thuộc nhóm nào: admin, staff, customer...) (Đã có bảng Permissions để phân quyền rồi)
+- Code
+- Name
+- FullName
+- BirthDay
+- Address
+- Email
+- Phone
+- Image
+
+DONE*** CommonCategories (lưu các danh mục chỉ có Code, Name, Description, không có thêm thông tin đặc biệt)
+- Id
+- Code
+- Name
+- Description
+- GroupCode
+- OrderNo
+(hiện tại đã có: 1. FoodType - quy định là đồ ăn hay đồ uống
+		 2. ClassificationType - tiêu chí phân loại
+)
+
+DONE*** StatusCategories (lưu danh mục trạng thái, cho từng table)
+- Id
+- Code
+- Name
+- OrderNo
+- ForTable
+- Description
+- Color
+- ShowInAdmin
+- ShowInClient
+- IsActive
+
+B/ Lists (các danh mục)
+
+LƯU Ý: các danh mục chỉ có Id, Code, Name, Description có thể cho hết vào CommonCategory, với một GroupCode duy nhất
+
+DONE*** DesireTypes (các loại mục tiêu, mong muốn của người dùng) -> có thể cho vào CommonCategory
+- Id
+- Code
+- Name
+- Description
+
+DONE*** FavoriteTasteTypes (các loại khẩu vị ưu thích) -> có thể cho vào CommonCategory
+- Id
+- Code
+- Name
+- Description
+
+DONE*** UserBodyIndexes (các chỉ sổ cơ thể của người dùng) // Hiện tại chỉ một số thông tin Demo, sau này phát triển hơn,
+sẽ làm đầy đủ như thông tin khi sử dụng máy InBody
+- Id
+- UserId
+- Date
+- Height
+- Weight
+- Chest
+- Waist
+- Butt / Ass
+- FatPercent
+- MusclePercent
+
+DONE*** BodyClassifications (danh mục phân loại kiểu người, dáng người, tạng người...)
+- Id
+- Code
+- Name
+- ClassificationTypeId (tiêu chí phân loại)
+- Description
+- Detail
+
+DONE*** UserBodyClassifications (phân loại người dùng thuộc kiểu người, dáng người, tạng người nào)
+- Id
+- UserId
+- Date
+- BodyClassificationId (người dùng cùng lúc có thể cùng lúc thuộc nhiều kiểu người, dáng người)
+- Description
+
+DONE*** UserDesires (mục tiêu, mong muốn của từng người dùng khi sử dụng dịch vụ của GF)
+- Id
+- UserId
+- DesireTypeId
+- Description
+- StartDate
+- EndDate
+- Detail
+
+*** UserFavoriteTastes (khẩu vị ưu thích của từng người dùng)
+- Id
+- UserId
+- FavoriteTasteTypeId
+- Description
+
+*** UserFavoriteFoods (các món ăn ưa thích của từng người dùng)
+- Id
+- UserId
+- FoodId
+- Description
+
+DONE*** LocationToGetOrderOfUsers (địa điểm, thời gian có thể nhận hàng của người dùng)
+- Id
+- UserId
+- Address
+- FirstFrom
+- FirstTo
+- SecondFrom
+- SecondTo
+- ThirdFrom
+- ThirdTo
+- Description
+
+DONE*** Foods (đồ ăn + đồ uống)
+- Id
+- Code
+- Name
+- FoodCategoryId
+- Description
+- Ingredient
+- Recipe
+- CookingDuration (minutes)
+- CookingGuideLink
+- Image và Images
+- Tags
+
+DONE*** FoodTags (tương tự như ProductTag và BlogTag)
+
+*** FoodPrices
+- Id
+- Date
+- FoodId
+- Cost
+- Price
+- PromotionPrice
+
+DONE*** FoodCategories (danh mục loại đồ ăn đồ uống)
+- Id
+- ParentId
+- Code
+- Name
+- FoodType (quy định đồ ăn hay đồ uống)
+- Description
+- OrderNo
+- Image
+
+DONE*** TemplateMenus (một số menu mẫu)
+- Id
+- Code
+- Name
+- Description
+
+DONE*** TemplateMenuDetails (chi tiết của menu mẫu)
+- Id
+- TemplateMenuId
+- MealOrderNo (số thứ tự của bữa trong thực đơn, bữa sáng, bữa phụ sáng, bữa trưa...)
+- MealTime (thời gian ăn bữa này)
+- ListFoodIds (danh sách các món ăn của bữa này, cách nhau bởi dấu phẩy)
+- ListFoodCodes
+- Description
+
+DONE*** TemplateMenuForBodyClassifications (các menu gợi ý cho từng kiểu người, dáng người, tạng người)
+- Id
+- TemplateMenuId
+- BodyClassificationId
+- Description
+
+*** UserMenu (thực đơn cho từng người dùng)
+- Id
+- UserId
+- StartDate
+- EndDate
+- Description
+
+REJECTED*** UserMenuDetail (chi tiết thực đơn, cố gắng thay đổi ít ít so với TemplateMenu nhé :v )
+- Id
+- UserMenuId
+- MealOrderNo (số thứ tự của bữa trong thực đơn, bữa sáng, bữa phụ sáng, bữa trưa...)
+- MealTime (thời gian ăn bữa này)
+- ListFoodIds (danh sách các món ăn có thể chọn của bữa này, cách nhau bởi dấu phẩy)
+- ListFoodCodes
+- Description
+
+*** MemberCard (thẻ sử dụng chương trình của GF - cái ra doanh thu đây này)
+- Id
+- UserId
+- Type (loại thẻ)
+- StartDate
+- EndDate
+- MonthDuration
+- UserMenuId
+- Cost
+- Price
+- PromotionpPrice
+
+*** DaisyOrder (bữa ăn hàng ngày ship đến cho người dùng, phục vụ bữa ăn theo MemberCard chứ không theo UserId)
+- Id
+- MemberCardId
+- FirstOrderLocationId
+- FirstOrderTime
+- SecondOrderLocationId
+- SecondOrderTime
+- ThirdOrderLocationId
+- ThirdOrderTime
+- RealFirstOrderTime
+- RealSecondOrderTime
+- RealThirdOrderTime
+- AlternativePersonName
+- AlternativePersonPhone
+- AlternativePersonEmail
+- Description
+- UserFeedback (feedback chung cho cả bữa ăn)
+
+*** DaisyOrderDetail (chi tiết bữa ăn hàng ngày)
+- Id
+- DaisyOrderId
+- MealOrderNo
+- MealTime (thời gian ăn bữa này)
+- FoodId
+- FoodCode
+- Description
+- RealEatTime (thời gian thực tế mà người dùng ăn)
+- UserFeedback (feedback cho từng món ăn cụ thể)
+
+C/ Bussiness (các bảng xử lý nghiệp vụ)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+getAllFood: function () {
+        $("#ddlmdFood").select2({
+            ajax: {
+                url: "https://api.github.com/search/repositories",
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        q: params.term, // search term
+                        page: params.page
+                    };
+                },
+                processResults: function (data, params) {
+                    // parse the results into the format expected by Select2
+                    // since we are using custom formatting functions we do not need to
+                    // alter the remote JSON data, except to indicate that infinite
+                    // scrolling can be used
+                    params.page = params.page || 1;
+
+                    return {
+                        results: data.items,
+                        pagination: {
+                            more: (params.page * 30) < data.total_count
+                        }
+                    };
+                },
+                cache: true
+            },
+            escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+            minimumInputLength: 1,
+            templateResult: setOfFood.formatRepo,
+            templateSelection: setOfFood.formatRepoSelection,
+            theme: 'bootstrap4',
+            containerCssClass: ':all:',
+            placeholder: "-- Select --",
+            allowClear: true
+        });
+    },
+
+    formatRepo: function (repo) {
+        if (repo.loading) {
+            return repo.text;
+        }
+
+        var markup = "<div class='select2-result-repository clearfix'>" +
+            "<div class='select2-result-repository__avatar'><img src='" + repo.owner.avatar_url + "' /></div>" +
+            "<div class='select2-result-repository__meta'>" +
+            "<div class='select2-result-repository__title'>" + repo.full_name + "</div>";
+
+        if (repo.description) {
+            markup += "<div class='select2-result-repository__description'>" + repo.description + "</div>";
+        }
+
+        markup += "<div class='select2-result-repository__statistics'>" +
+            "<div class='select2-result-repository__forks'><i class='fa fa-flash'></i> " + repo.forks_count + " Forks</div>" +
+            "<div class='select2-result-repository__stargazers'><i class='fa fa-star'></i> " + repo.stargazers_count + " Stars</div>" +
+            "<div class='select2-result-repository__watchers'><i class='fa fa-eye'></i> " + repo.watchers_count + " Watchers</div>" +
+            "</div>" +
+            "</div></div>";
+
+        return markup;
+    },
+
+    formatRepoSelection: function (repo) {
+        return repo.full_, name || repo.text;
+    }
+
+    //getAllFood: function () {
+    //    var render = '<option value=" ">-- Select --</option>';
+    //    $.ajax({
+    //        type: 'GET',
+    //        url: '/Admin/Food/GetTop',
+    //        dataType: 'JSON',
+    //        data: {
+    //            max: 10
+    //        },
+    //        success: function (response) {
+    //            if (response.Success == true) {
+    //                if (response.Data != null) {
+    //                    $.each(response.Data, function (i, item) {
+    //                        render += '<option data-code="' + item.Code + '" data-name="' + item.Name + '" data-image="' + item.Image + '" value="' + item.Id + '">' + item.Code + ' - ' + item.Name + '</option>';
+    //                    });
+    //                    $('#ddlmdFood').html(render);
+    //                    //common.selectSearch('#ddlmdFood');
+    //                    $('#ddlmdFood').select2({
+    //                        theme: 'bootstrap4',
+    //                        containerCssClass: ':all:',
+    //                        placeholder: "-- Select --",
+    //                        allowClear: true,
+    //                        //templateResult: setOfFood.formatState,
+    //                        //templateSelection: setOfFood.formatState
+    //                        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
+    //                        templateResult: setOfFood.formatRepo,
+    //                        templateSelection: setOfFood.formatRepoSelection
+    //                    });
+    //                }
+    //            }
+    //            else {
+    //                common.notify('error', response.Message);
+    //            }
+    //        },
+    //        error: function (res) {
+    //            common.notify('error', 'Can not load ajax function GetAll');
+    //        }
+    //    });
+    //},
+
+    //formatState: function (opt) {
+    //    if (!opt.id) {
+    //        return opt.text;
+    //    }
+
+    //    var optimage = $(opt.element).attr('data-image');
+    //    if (!optimage) {
+    //        return opt.text;
+    //    } else {
+    //        var $opt = $(
+    //            '<span><img class="maxh-30" src="' + optimage + '" /> ' + opt.text + '</span>'
+    //        );
+    //        return $opt;
+    //    }
+    //},
+
+    //formatRepo: function (repo) {
+    //    if (repo.loading) {
+    //        return repo.text;
+    //    }
+
+    //    var image = $(repo.element).attr('data-image');
+    //    var code = $(repo.element).attr('data-code');
+    //    var name = $(repo.element).attr('data-name');
+
+    //    var markup = "<div class='select2-result-repository clearfix'>" +
+    //        "<div class='select2-result-repository__avatar pull-left'><img class='img-responsive maxw-70' src='" + image + "' /></div>" +
+    //        "<div class='select2-result-repository__meta pull-right'>" +
+    //        "<div class='select2-result-repository__title'>" + name + "</div>";
+
+    //    if (code) {
+    //        markup += "<div class='select2-result-repository__description'>" + code + "</div>";
+    //    }
+
+    //    markup += "</div>";
+
+    //    return markup;
+    //},
+
+    //formatRepoSelection: function (repo) {
+    //    return repo.full_name || repo.text;
+    //}

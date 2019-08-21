@@ -1,0 +1,129 @@
+﻿<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="~/admin-template/images/icon/sparta.ico">
+    <link rel="stylesheet" href="~/admin-template/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="~/admin-template/css/themify-icons.css">
+    <link rel="stylesheet" href="~/admin-template/css/metisMenu.css">
+    <link rel="stylesheet" href="~/admin-template/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/admin-template/css/slicknav.min.css">
+    <!-- modernizr css -->
+    <script src="~/admin-template/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- Date Picker -->
+    <link href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <!-- Daterange picker -->
+    <link href="~/lib/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <!-- Toastr -->
+    <link href="~/lib/toastr/toastr.css" rel="stylesheet" />
+    <!-- Mustache -->
+    <script src="~/lib/mustache/mustache.js"></script>
+    <!-- CKEditor -->
+    <link href="~/lib/ckeditor/skins/moono/editor.css" rel="stylesheet" />
+    <!-- Sweetalert2 -->
+    <link href="~/lib/sweetalert2/dist/sweetalert2.css" rel="stylesheet" />
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link href="~/lib/iCheck/skins/all.css" rel="stylesheet" />
+    <!-- Select2 -->
+    <link href="~/lib/select2/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="~/lib/select2-bootstrap4-theme/dist/select2-bootstrap4.min.css" rel="stylesheet" />
+    <!-- Sliders -->
+    <link href="~/lib/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet" />
+    <!-- Bootstrap-select -->
+    <link href="~/lib/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" />
+    <!-- others css -->
+    <link rel="stylesheet" href="~/admin-template/css/typography.css">
+    <link rel="stylesheet" href="~/admin-template/css/default-css.css">
+    <link rel="stylesheet" href="~/admin-template/css/styles.css">
+    <link rel="stylesheet" href="~/admin-template/css/responsive.css">
+    <!-- Helper -->
+    <link href="~/admin-template/css/helper.css" rel="stylesheet" />
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <div id="preloader" hidden>
+        <div class="loader"></div>
+    </div>
+    <!-- page container area start -->
+    <div class="page-container">
+        <!-- sidebar menu area start -->
+        @await Component.InvokeAsync("SideBar")
+        <!-- sidebar menu area end -->
+        <!-- main content area start -->
+        <div class="main-content">
+            <!-- header area start -->
+            @await Component.InvokeAsync("Header")
+            <!-- header area end -->
+            <!-- page title area start -->
+            @RenderSection("PageTitle", required: false)
+            <!-- page title area end -->
+            <div class="main-content-inner">
+                @RenderBody()
+            </div>
+        </div>
+        <!-- main content area end -->
+        <!-- footer area start-->
+        @Html.Partial("_FooterPartial.cshtml")
+        <!-- footer area end-->
+    </div>
+    <!-- page container area end -->
+    <!-- offset area start -->
+    @Html.Partial("_OffsetArea.cshtml")
+    <!-- offset area end -->
+    <!-- jquery latest version -->
+    <script src="~/admin-template/js/vendor/jquery-2.2.4.min.js"></script>
+    <!-- bootstrap 4 js -->
+    <script src="~/admin-template/js/popper.min.js"></script>
+    <script src="~/admin-template/js/bootstrap.min.js"></script>
+    <script src="~/admin-template/js/owl.carousel.min.js"></script>
+    <script src="~/admin-template/js/metisMenu.min.js"></script>
+    <script src="~/admin-template/js/jquery.slimscroll.min.js"></script>
+    <script src="~/admin-template/js/jquery.slicknav.min.js"></script>
+    <!-- start chart js -->
+    <script src="~/lib/Chart.js/dist/Chart.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="~/lib/jqueri-ui/jquery-ui.js"></script>
+    <!-- daterangepicker -->
+    <script src="~/lib/moment/moment.js"></script>
+    <script src="~/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- datepicker -->
+    <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+    <!-- Toastr -->
+    <script src="~/lib/toastr/toastr.min.js"></script>
+    <!-- twbs-pagination -->
+    <script src="~/lib/twbs-pagination/jquery.twbsPagination.js"></script>
+    <!-- jQuery validation -->
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <!-- CKEditor -->
+    <script src="~/lib/ckeditor/ckeditor.js"></script>
+    <!-- Sweetalert2 -->
+    <script src="~/lib/sweetalert2/dist/sweetalert2.js"></script>
+    <!-- Select2 -->
+    <script src="~/lib/select2/dist/js/select2.full.min.js"></script>
+    <!-- Sliders -->
+    <script src="~/lib/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <!-- iCheck for checkboxes and radio inputs -->
+    <script src="~/lib/iCheck/icheck.js"></script>
+    <!-- all line chart activation -->
+    <script src="~/admin-template/js/line-chart.js"></script>
+    <!-- all pie chart -->
+    <script src="~/admin-template/js/pie-chart.js"></script>
+    <!-- Bootstrap-select -->
+    <script src="~/lib/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <!-- others plugins -->
+    <script src="~/admin-template/js/plugins.js"></script>
+    <script src="~/admin-template/js/scripts.js"></script>
+    <!-- Common -->
+    <script src="~/admin-app/shared/common.js"></script>
+    <script src="~/admin-app/shared/constants.js"></script>
+    <script src="~/admin-app/shared/main-layout.js"></script>
+    <script src="~/admin-app/shared/dropdownlists.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

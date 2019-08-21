@@ -1,0 +1,43 @@
+﻿@model List<FunctionViewModel>
+
+@{
+    var currentUrl = string.Format("{0}://{1}{2}{3}", Context.Request.Scheme, Context.Request.Host, Context.Request.Path, Context.Request.QueryString);
+}
+
+<div class="sidebar-menu">
+    <div class="sidebar-header">
+        <div class="logo">
+            <a href="/Admin/Home/Index"><img src="~/admin-template/images/icon/logo.png" alt="logo"></a>
+        </div>
+    </div>
+    <div class="main-menu">
+        <div class="menu-inner">
+            <nav>
+                <ul class="metismenu" id="menu">
+                    @foreach (var item in Model.Where(x => string.IsNullOrEmpty(x.ParentId)).OrderBy(x => x.Name))
+                    {
+                        var children = Model.Where(x => x.ParentId == item.Id);
+                        if (children.Any())
+                        {
+                            var active = children.Any(x => currentUrl.Contains(x.Url)) ? "active" : "";
+                            <li class="@active">
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="@item.IconCss"></i><span>@item.Name</span></a>
+                                <ul class="collapse">
+                                    @foreach (var childItem in children.OrderBy(x => x.Name))
+                                    {
+                                        active = currentUrl.Contains(childItem.Url) ? "active" : "";
+                                        <li class="@active"><a href="@childItem.Url"><i class="@childItem.IconCss"></i>&nbsp;&nbsp;@childItem.Name</a></li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="active"><a href="@item.Url"><i class="@item.IconCss"></i> <span>@item.Name</span></a></li>
+                        }
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
